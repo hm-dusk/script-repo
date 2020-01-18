@@ -1,28 +1,38 @@
 #! /bin/bash
 
 # ###
-# 配置集群免密登录脚本(Configure a cluster password-free login script)
+# 配置集群主机名和免密登录脚本(Configure a cluster password-free login script)
 # author：hm
 # version: 1.0
-# use: xxx.sh [node1,node2,node3] [password]
+# use: xxx.sh hostFilename
 # description：
 # 1、主机需安装sshpass (The host needs to install sshpass)
-# 2、各主机需要添加host映射到各自的hosts文件中 (Each host needs to add host mapping to its own hosts file)
+# 2、需提供主机名信息文件hostname.txt，格式如下 (Need to provide the hostname information file hostname.txt, the format is as follows)：
+# [ip1] [hostname1] [sort hostname1] [password1]
+# [ip2] [hostname2] [sort hostname2] [password2]
 # ###
 
-HOSTS=$1
-PASSWD=$2
+# 获取数据文件名
+filename=$1
+
+# 所有节点修改hosts文件，增加host映射
+cat $filename | while read ip1 host1 sort1 pwd1; do
+  sshpass -p $pwd1 ssh root@$ip1 "hostnamectl set-hostname $host1"
+  cat $filename | while read ip2 host2 sort2 pwd2; do
+    sshpass -p $pwd1 ssh root@$ip1 "echo $ip2 $host2 $sort2 >> /etc/hosts"
+  done
+done
+echo "=====主机名、host文件配置完成！(Host name, host file configuration is complete!)====="
 
 # 所有节点生成秘钥文件(Generate a key file for all nodes)
-for node in $HOSTS ; do
-  sshpass -p $PASSWD ssh -o StrictHostKeyChecking=no root@$node "ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa"
+cat $filename | while read ip host sort pwd; do
+  sshpass -p $pwd ssh root@$ip "ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa"
 done
 
 # 将每个节点的id拷贝到所有节点的authorized_keys文件中(Copy the id of each node into the authorized_keys file of all nodes)
-for node in $HOSTS ; do
-  for node2 in $HOSTS ; do
-    sshpass -p $PASSWD ssh -o StrictHostKeyChecking=no root@$node "sshpass -p Cdacoo_2019 ssh-copy-id $node2"
+cat $filename | while read ip1 host1 sort1 pwd1; do
+  cat $filename | while read ip2 host2 sort2 pwd2; do
+    sshpass -p $pwd1 ssh -o StrictHostKeyChecking=no root@$ip1 "sshpass -p $pwd2 ssh-copy-id -f $ip2 2>/dev/null"
   done
 done
-
-echo "免密登录完成！(Secret-free login is complete!)"
+echo "=====免密登录完成！(Secret-free login is complete!)====="
