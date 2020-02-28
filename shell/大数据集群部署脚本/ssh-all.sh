@@ -4,7 +4,7 @@
 # 配置集群主机名和免密登录脚本(Configure a cluster password-free login script)
 # author：hm
 # version: 1.0
-# use: xxx.sh hostFilename
+# use: ./xxx.sh hostFilename
 # description：
 # 1、需提供主机名信息文件hostname.txt，格式如下 (Need to provide the hostname information file hostname.txt, the format is as follows)：
 # [ip1] [hostname1] [short hostname1] [password1]
@@ -13,6 +13,11 @@
 
 # 获取数据文件名（Get data file name）
 filename=$1
+
+# 检测是否安装expect
+if [[ ! -e /usr/bin/expect ]]
+ then  yum -y install expect
+fi
 
 # 所有节点修改主机名、hosts文件（Modify the host name and hosts file for all nodes）
 cat ${filename} | while read ip1 host1 short1 pwd1; do

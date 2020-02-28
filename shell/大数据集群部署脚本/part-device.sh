@@ -1,7 +1,13 @@
 #!/bin/bash
-# 脚本说明：对磁盘进行格式化分区脚本
-# 使用方式：./part-device.sh sdb sdc sdd sde
+
+# ###
+# 对磁盘进行格式化分区脚本
+# author：hm
+# version: 1.0
+# use: ./xxx.sh sdb sdc sdd sde
+# description：
 # 脚本后面接一个参数，表示需要格式化的磁盘名，可以添加多个磁盘，以空格分开
+# ###
 
 # 接收的参数，多个磁盘用空格分开
 device=$@

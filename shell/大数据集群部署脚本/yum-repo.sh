@@ -4,7 +4,7 @@
 # 配置离线yum源
 # author：hm
 # version: 1.0
-# use: xxx.sh xxx.iso 192.168.1.1
+# use: ./xxx.sh xxx.iso 192.168.1.1
 # description：
 # 1、需提供当做yum源的iso文件
 # 2、需要提供本机ip地址
@@ -45,6 +45,9 @@ mv ${current_path}/repo-back /etc/yum.repos.d/
 ##################################### 2.制作httpd仓库 ################################################
 # 安装httpd服务
 yum -y install httpd
+
+# 修改配置文件，使其支持.parcel格式
+sed -i 's/AddType application\/x-gzip .gz .tgz/AddType application\/x-gzip .gz .tgz .parcel/g' /etc/httpd/conf/httpd.conf
 
 # 启动httpd服务
 systemctl start httpd

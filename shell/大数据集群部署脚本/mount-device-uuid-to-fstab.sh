@@ -1,7 +1,13 @@
 #!/bin/bash
-# 脚本说明：将磁盘分区挂载到目录，并修改fstab文件，达到开机自动挂载的效果（通过磁盘UUID挂载）
-# 使用方式：./mount-device-uuid-to-fstab.sh /dev/vdb1 /opt
+
+# ###
+# 将磁盘分区挂载到目录，并修改fstab文件，达到开机自动挂载的效果（通过磁盘UUID挂载）
+# author：hm
+# version: 1.0
+# use: ./xxx.sh /dev/vdb1 /opt
+# description：
 # 脚本后面接两个参数，第一个参数为磁盘名，第二个参数为需要挂载到的目录
+# ###
 
 # 第一个参数，需要挂载的磁盘分区，例如/dev/vdb1
 device=$1
