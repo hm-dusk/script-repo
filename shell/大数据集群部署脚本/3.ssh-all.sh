@@ -9,6 +9,7 @@
 # 1、需提供主机名信息文件hostname.txt，格式如下 (Need to provide the hostname information file hostname.txt, the format is as follows)：
 # [ip1] [hostname1] [short hostname1] [password1]
 # [ip2] [hostname2] [short hostname2] [password2]
+# 2、注意hostname.txt文件最后一行末尾必须要有一个换行符，不然最后一行识别不到。（Note that there must be a line break at the end of the last line of the hostname.txt file, otherwise the last line is not recognized.）
 # ###
 
 # 获取数据文件名（Get data file name）

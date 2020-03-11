@@ -11,6 +11,12 @@
 # 3、需要xscp.sh脚本，且放到了/usr/bin/目录下
 # ###
 
+# 安装必要软件
+xcall.sh "yum -y install vim ntp"
+
+# 修改命令终端提示符，使其高亮以便运维
+xcall.sh "echo \"export PS1='[\\[\\e[32;1m\\]\\u@\\h \\W\\[\\e[0m\\]]\\\\$ '\" >> /etc/bashrc"
+
 # 关闭防火墙
 xcall.sh "systemctl stop firewalld"
 xcall.sh "systemctl disable firewalld"
@@ -36,8 +42,5 @@ fi
 EOF
 xscp.sh /etc/rc.d/rc.local /etc/rc.d/
 xcall.sh "chmod +x /etc/rc.d/rc.local"
-
-# 配置时钟同步
-xcall.sh "yum -y install ntp"
 
 
