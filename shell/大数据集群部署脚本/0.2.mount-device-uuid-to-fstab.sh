@@ -15,9 +15,9 @@ device=$1
 dir=$2
 
 # 得到磁盘分区的UUID
-uuid=$(lsblk -o UUID $device | sed -n '2p')
+uuid=$(lsblk -o UUID ${device} | sed -n '2p')
 # 得到磁盘分区的类型
-type=$(lsblk -o FSTYPE $device | sed -n '2p')
+type=$(lsblk -o FSTYPE ${device} | sed -n '2p')
 
 # 将挂载命令拼接到fstab文件后面，默认采用noatime模式：https://wiki.archlinux.org/index.php/Fstab_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#atime_%E5%8F%82%E6%95%B0
-echo UUID=$uuid $dir  $type  defaults,noatime  1 2 >> /etc/fstab
+echo UUID=${uuid} ${dir}  ${type}  defaults,noatime  1 2 >> /etc/fstab
