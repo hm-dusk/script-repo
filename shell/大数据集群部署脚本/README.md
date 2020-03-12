@@ -26,6 +26,14 @@
 ## 6.install-mariadb.sh
 在需要安装元数据库的节点运行，用于安装元数据库（Mariadb）
 
+## 7.init-mariadb.sh
+初始化CDH元数据库，包括新建库、用户、分发mysql连接jar包等，需要`init.sql`脚本
+
+## 8.cdh-yum-repo.sh
+配置Cloudera Manager、CDH parcel yum仓库源
+
+## 9.
+
 # 配置文件说明
 ## hostname.txt
 需要提前配置好，格式为：
@@ -39,3 +47,6 @@
 ## my.cnf
 Mariadb配置文件
 
+## init.sql
+安装Mariadb后需要执行的初始化sql脚本
+用户创建CDH需要的库和用户，其中密码需要根据实际情况进行修改

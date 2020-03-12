@@ -13,7 +13,7 @@
 # ###
 
 # 安装必要软件（Install necessary software）
-xcall.sh "yum -y install vim ntp"
+xcall.sh "yum -y install vim ntp lrzsz createrepo"
 
 # 修改命令终端提示符，使其高亮以便运维（Modify the command terminal prompt to highlight it for operation and maintenance）
 xcall.sh "echo \"export PS1='[\\[\\e[32;1m\\]\\u@\\h \\W\\[\\e[0m\\]]\\\\$ '\" >> /etc/bashrc"
