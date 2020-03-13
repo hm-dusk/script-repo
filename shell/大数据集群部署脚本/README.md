@@ -23,16 +23,20 @@
 ## 5.init-cdh-env.sh
 一般在node1节点（有`xcall.sh`、`xscp.sh`脚本的主机）执行，用于初始化CDH部署环境
 
-## 6.install-mariadb.sh
+## 6.config-ntp.sh
+配置NTP时钟同步（未完成）
+
+## 7.install-mariadb.sh
 在需要安装元数据库的节点运行，用于安装元数据库（Mariadb）
 
-## 7.init-mariadb.sh
+## 8.init-mariadb.sh
 初始化CDH元数据库，包括新建库、用户、分发mysql连接jar包等，需要`init.sql`脚本
 
-## 8.cdh-yum-repo.sh
+## 9.cdh-yum-repo.sh
 配置Cloudera Manager、CDH parcel yum仓库源
 
-## 9.
+## 10.install-cloudera-manager.sh
+安装Cloudera Manager服务
 
 # 配置文件说明
 ## hostname.txt
