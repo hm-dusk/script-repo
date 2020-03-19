@@ -4,12 +4,11 @@
 # 为当前节点配置离线cm源和cdh源（Configure offline cm source and cdh source for the current node）
 # author：hm
 # version: 1.0
-# use: ./xxx.sh cm6.3.0 cdh6.3.0 192.168.1.1
+# use: ./xxx.sh cm6.3.0 cdh6.3.0
 # description：
 # 1、需要提供cm源文件夹、cdh源文件夹（Need to provide cm source folder, cdh source folder）
-# 2、需要提供本机ip地址（Need to provide local IP address）
-# 3、一般在node1执行，也就是配置httpd服务的节点（Generally executed on node1, that is, the node that configures the httpd service）
-# 4、脚本后面接3个参数，第一个为cm源文件夹，包含cloudera manager一系列rpm安装包；第二个为cdh源文件夹，包含cdh的parcel文件；第三个为本机ip地址，也就是安装httpd服务的ip地址（The script is followed by 3 parameters, the first is the cm source folder, which contains a series of rpm installation packages for cloudera manager; the second is the cdh source folder, which contains the parcel file of the cdh; the third is the local IP address, also Is the IP address of the httpd service）
+# 2、一般在node1执行，也就是配置httpd服务的节点（Generally executed on node1, that is, the node that configures the httpd service）
+# 3、脚本后面接2个参数，第一个为cm源文件夹，包含cloudera manager一系列rpm安装包；第二个为cdh源文件夹，包含cdh的parcel文件（The script is followed by 3 parameters, the first is the cm source folder, which contains a series of rpm installation packages for cloudera manager; the second is the cdh source folder, which contains the parcel file of the cdh）
 # ###
 
 # Cloudera Manager安装包目录
@@ -20,7 +19,7 @@ cm_rpm=$1
 cdh_parcel=$2
 # 本机ip地址，安装httpd服务节点的ip地址
 # Local IP address, the IP address of the node where the httpd service is installed
-ip_addr=$3
+ip_addr=$(hostname -I)
 
 # 将目录拷贝到/var/www/html/目录下
 # Copy the directory to the / var / www / html / directory

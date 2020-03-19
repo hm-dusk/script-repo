@@ -4,16 +4,15 @@
 # 为当前节点配置离线yum源（Configure offline yum source for the current node）
 # author：hm
 # version: 1.0
-# use: ./xxx.sh xxx.iso 192.168.1.1
+# use: ./xxx.sh xxx.iso
 # description：
-# 1、需提供当做yum源的iso文件（Need to provide iso file as yum source）
-# 2、需要提供本机ip地址（Need to provide local IP address）
+# 需提供当做yum源的iso文件（Need to provide iso file as yum source）
 # ###
 
 # 获取iso文件名（Get iso file name）
 filename=$1
 # 获取本机ip地址（Get the local IP address）
-ip_addr=$2
+ip_addr=$(hostname -I)
 
 ################################## 1.生成本地临时仓库（Generate a local temporary repository） ################################################
 # 挂载到本地目录（Mount to local directory）
