@@ -23,7 +23,6 @@ yum -y install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-
 
 # 初始化Cloudera Manager数据库
 # Initialize the Cloudera Manager database
-/opt/cloudera/cm/schema/scm_prepare_database.sh mysql scm scm
 expect << EOF
   spawn /opt/cloudera/cm/schema/scm_prepare_database.sh mysql scm scm
   expect {

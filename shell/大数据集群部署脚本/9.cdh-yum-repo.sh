@@ -22,7 +22,8 @@ cdh_parcel=$2
 ip_addr=$(hostname -I | awk '$1=$1')
 
 # 将目录拷贝到/var/www/html/目录下
-# Copy the directory to the / var / www / html / directory
+# Copy the directory to the /var/www/html/ directory
+echo "Start moving directory ..."
 cp -r ${cm_rpm} ${cdh_parcel} /var/www/html/
 
 # 配置cm-repo文件
