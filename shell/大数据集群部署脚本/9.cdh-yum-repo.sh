@@ -19,7 +19,7 @@ cm_rpm=$1
 cdh_parcel=$2
 # 本机ip地址，安装httpd服务节点的ip地址
 # Local IP address, the IP address of the node where the httpd service is installed
-ip_addr=$(hostname -I)
+ip_addr=$(hostname -I | awk '$1=$1')
 
 # 将目录拷贝到/var/www/html/目录下
 # Copy the directory to the / var / www / html / directory

@@ -12,7 +12,7 @@
 # 获取iso文件名（Get iso file name）
 filename=$1
 # 获取本机ip地址（Get the local IP address）
-ip_addr=$(hostname -I)
+ip_addr=$(hostname -I | awk '$1=$1')
 
 ################################## 1.生成本地临时仓库（Generate a local temporary repository） ################################################
 # 挂载到本地目录（Mount to local directory）
