@@ -24,7 +24,7 @@
 一般在node1节点（有`xcall.sh`、`xscp.sh`脚本的主机）执行，用于初始化CDH部署环境
 
 ## 6.config-ntp.sh
-配置NTP时钟同步（未完成）
+配置NTP时钟同步
 
 ## 7.install-mariadb.sh
 在需要安装元数据库的节点运行，用于安装元数据库（Mariadb）
