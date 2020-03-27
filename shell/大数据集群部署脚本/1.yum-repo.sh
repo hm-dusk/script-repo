@@ -46,6 +46,7 @@ yum -y install httpd
 sed -i 's/AddType application\/x-gzip .gz .tgz/AddType application\/x-gzip .gz .tgz .parcel/g' /etc/httpd/conf/httpd.conf
 
 # 启动httpd服务（Start httpd service）
+systemctl enable httpd
 systemctl start httpd
 
 # 将repo文件内容改为http的源路径（Change the content of the repo file to the source path of http）
