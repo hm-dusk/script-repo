@@ -21,10 +21,10 @@ cdh_parcel=$2
 # Local IP address, the IP address of the node where the httpd service is installed
 ip_addr=$(hostname -I | awk '$1=$1')
 
-# 将目录拷贝到/var/www/html/目录下
-# Copy the directory to the /var/www/html/ directory
+# 将目录移动到/var/www/html/目录下
+# Move the directory to the /var/www/html/ directory
 echo "Start moving directory ..."
-cp -r ${cm_rpm} ${cdh_parcel} /var/www/html/
+mv ${cm_rpm} ${cdh_parcel} /var/www/html/
 
 # 配置cm-repo文件
 # Configure cm-repo file

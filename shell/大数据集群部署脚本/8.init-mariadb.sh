@@ -32,3 +32,4 @@ mv ${connect_jar} mysql-connector-java.jar
 xcall.sh "rm -rf /usr/share/java"
 xcall.sh "mkdir -p /usr/share/java"
 xscp.sh ./mysql-connector-java.jar /usr/share/java/
+rm -f mysql-connector-java.jar

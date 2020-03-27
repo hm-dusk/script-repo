@@ -12,9 +12,11 @@
 # 4、需要xscp.sh脚本，且放到了/usr/bin/目录下（Requires xscp.sh script and placed it in the / usr / bin / directory）
 # ###
 
-# 安装必要软件
-# Install necessary software
-xcall.sh "yum -y install vim ntp lrzsz createrepo"
+# 安装启动必要软件
+# Install and start necessary software
+xcall.sh "yum -y install vim lrzsz rng-tools"
+xcall.sh "systemctl start rngd"
+xcall.sh "systemctl enable rngd"
 
 # 修改命令终端提示符，使其高亮以便运维
 # Modify the command terminal prompt to highlight it for operation and maintenance
