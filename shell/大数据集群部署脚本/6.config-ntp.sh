@@ -48,6 +48,5 @@ sed "s/Fudge ${ip_addr} stratum 10/Fudge 127.127.1.0 stratum 10/" -i /etc/ntp.co
 # 所有节点启动ntp服务
 # All nodes start ntp service
 while read ip host short pwd; do
-ssh -f root@${ip} "systemctl enable ntpd"
-ssh -f root@${ip} "systemctl start ntpd"
+ssh -f root@${ip} "systemctl enable ntpd;systemctl start ntpd"
 done < ${filename}
