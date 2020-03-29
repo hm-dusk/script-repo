@@ -1,2 +1,2 @@
-192.168.136.112 cdh1.hming.org cdh1 root
-192.168.136.113 cdh2.hming.org cdh2 root
+192.168.59.201 ipa01.hming.org ipa01 root
+192.168.59.202 ipa02.hming.org ipa02 root

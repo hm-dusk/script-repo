@@ -7,6 +7,7 @@ mariadb_conf="my.cnf"
 mariadb_root_paaaword="1234"
 mariadb_scm_paaaword="1234"
 mariadb_init_sql="init.sql"
+mysql_connect="mysql-connector-java-5.1.47.jar"
 cm="cm6.3.0"
 cdh="cdh6.3.0"
 
@@ -24,7 +25,7 @@ sh 6.config-ntp.sh ${host_name_file} ${net_mask}
 
 sh 7.install-mariadb.sh ${mariadb_conf} ${mariadb_root_paaaword}
 
-sh 8.init-mariadb.sh ${mariadb_root_paaaword} ${mariadb_init_sql} mysql*.jar
+sh 8.init-mariadb.sh ${mariadb_root_paaaword} ${mariadb_init_sql} ${mysql_connect}
 
 sh 9.cdh-yum-repo.sh ${cm} ${cdh}
 
