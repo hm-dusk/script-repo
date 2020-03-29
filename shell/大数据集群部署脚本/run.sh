@@ -24,7 +24,7 @@ sh 6.config-ntp.sh ${host_name_file} ${net_mask}
 
 sh 7.install-mariadb.sh ${mariadb_conf} ${mariadb_root_paaaword}
 
-sh 8.init-mariadb.sh ${mariadb_root_paaaword} ${mariadb_init_sql} mysql-connector-java-*.jar
+sh 8.init-mariadb.sh ${mariadb_root_paaaword} ${mariadb_init_sql} mysql*.jar
 
 sh 9.cdh-yum-repo.sh ${cm} ${cdh}
 
