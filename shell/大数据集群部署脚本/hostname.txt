@@ -1,2 +1,3 @@
-192.168.59.201 ipa01.hming.org ipa01 root
-192.168.59.202 ipa02.hming.org ipa02 root
+192.168.136.101 ipa01.hming.org ipa01 root
+192.168.136.102 ipa02.hming.org ipa02 root
+192.168.136.103 ipa03.hming.org ipa03 root
