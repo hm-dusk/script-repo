@@ -9,6 +9,14 @@
 # 需提供当做yum源的iso文件（Need to provide iso file as yum source）
 # ###
 
+# 参数验证
+param_count=$#
+if [ ${param_count} -ne 1 ]
+then
+        echo "error: need iso file param!"
+        exit
+fi
+
 # 获取iso文件名（Get iso file name）
 filename=$1
 # 获取本机ip地址（Get the local IP address）
