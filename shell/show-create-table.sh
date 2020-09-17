@@ -21,3 +21,6 @@ while read -r tname; do
   beeline -u ${hive_url} -n hive --outputformat=csv2 --showHeader=false -e "show create table ${database}.${tname};" >> all_table.sql
   echo -e '\n' >> all_table.sql
 done < .table_name.tmp
+
+# 删除临时文件
+rm -f .table_name.tmp
