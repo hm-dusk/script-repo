@@ -6,7 +6,9 @@
 # version: 1.0
 # use: ./xxx.sh
 # description：
-# 当前节点配置过离线repo，且当前节点为yum离线源提供方，也就是需要该节点运行过1.yum-repo.sh脚本（The current node is configured with an offline repo, and the current node is the yum offline source provider, which means that the node needs to run the 1.yum-repo.sh script）
+# 1、当前节点配置过离线repo，且当前节点为yum离线源提供方，也就是需要该节点运行过1.yum-repo.sh脚本（The current node is configured with an offline repo, and the current node is the yum offline source provider, which means that the node needs to run the 1.yum-repo.sh script）
+# 2、需要xcall.sh脚本，且放到了/usr/bin/目录下（Requires xcall.sh script and is placed in the / usr / bin / directory）
+# 3、需要xscp.sh脚本，且放到了/usr/bin/目录下（Requires xscp.sh script and placed it in the / usr / bin / directory）
 # ###
 
 # 获取当前路径（Get the current path）
