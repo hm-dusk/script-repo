@@ -18,7 +18,7 @@ echo -e '\n'
 
 # 循环读取表名进行refresh操作（Read the table name cyclically for refresh operation）
 while read -r tname; do
-  impala-shell -i ${impala_url} -q "refresh ${database}.${tname};"
+  impala-shell -i ${impala_url} -q "invalidate metadata ${database}.${tname};refresh ${database}.${tname};"
   echo -e '\n'
 done <.table_name.tmp
 
