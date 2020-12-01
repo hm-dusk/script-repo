@@ -30,6 +30,7 @@ if [[ ! -e /usr/bin/expect ]]
  then  yum -y install expect
 fi
 expect << EOF
+  set timeout -1
   spawn mysql_secure_installation
   expect {
   "enter for none" { send "\r"; exp_continue}

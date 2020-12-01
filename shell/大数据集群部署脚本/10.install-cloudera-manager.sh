@@ -24,6 +24,7 @@ yum -y install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-
 # 初始化Cloudera Manager数据库
 # Initialize the Cloudera Manager database
 expect << EOF
+  set timeout -1
   spawn /opt/cloudera/cm/schema/scm_prepare_database.sh mysql scm scm
   expect {
   "password" {send "${password}\r"; exp_continue}

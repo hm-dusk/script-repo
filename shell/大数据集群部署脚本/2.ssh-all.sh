@@ -23,6 +23,7 @@ fi
 # 所有节点修改主机名、hosts文件（Modify the host name and hosts file for all nodes）
 cat ${filename} | while read ip1 host1 short1 pwd1; do
 expect << EOF
+  set timeout -1
   spawn ssh root@${ip1} "hostnamectl set-hostname ${host1}"
   expect {
   "yes/no" {send "yes\r"; exp_continue}
@@ -33,6 +34,7 @@ EOF
 # 在当前节点hosts文件中增加host映射（Add host mapping in hosts file of current node）
   cat ${filename} | while read ip2 host2 short2 pwd2; do
 expect << EOF
+  set timeout -1
   spawn ssh root@${ip1} "echo ${ip2} ${host2} ${short2} >> /etc/hosts"
   expect {
   "yes/no" {send "yes\r"; exp_continue}
@@ -50,6 +52,7 @@ tput setaf 7
 # 所有节点生成秘钥文件(Generate a key file for all nodes)
 cat ${filename} | while read ip host short pwd; do
 expect << EOF
+  set timeout -1
   spawn ssh root@${short} "ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa"
   expect {
   "yes/no" {send "yes\r"; exp_continue}
@@ -64,6 +67,7 @@ touch ./authorized_keys
 cat ${filename} | while read ip host short pwd; do
 # 复制节点的key文件到本地
 expect << EOF
+  set timeout -1
   spawn scp ${short}:/root/.ssh/id_rsa.pub ./${short}.pub
   expect {
   "yes/no" {send "yes\r"; exp_continue}
@@ -80,6 +84,7 @@ done
 # 将组装好的authorized_keys文件分发到所有节点
 cat ${filename} | while read ip host short pwd; do
 expect << EOF
+  set timeout -1
   spawn scp ./authorized_keys ${short}:/root/.ssh/
   expect {
   "yes/no" {send "yes\r"; exp_continue}
